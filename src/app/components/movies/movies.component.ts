@@ -14,7 +14,7 @@ export class MoviesComponent implements OnInit {
   totalResults: any;
   total_results: any;
   searchRes: any;
-  searchStr: string;
+  searchStr: any;
 
   constructor(private movieService: MoviesService) {
     this.responsiveOptions = [
@@ -49,7 +49,7 @@ export class MoviesComponent implements OnInit {
     error => console.log(error));
   }
 
-  changePage(event) {
+  changePage(event:any) {
     this.loader = true;
     this.getTopRatedMovies(event.pageIndex + 1);
   }

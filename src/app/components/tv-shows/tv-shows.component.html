@@ -20,10 +20,10 @@
         </div>
     </form>
 
-    <!-- <ng-container *ngIf="searchRes">
+    <ng-container *ngIf="searchRes">
         <app-skeleton *ngIf="loader"></app-skeleton>
         <div class="row" *ngIf="!loader">
-            <div class="col-md-2 listing__items" *ngFor="let item of searchRes | slice:0:18">
+            <div class="col-md-2 listing__items" *ngFor="let item of searchRes ">
                 <div [routerLink]="['/tv/', item?.id]">
                     <div class="listing-item-style">
                         <div class="overlay">
@@ -42,11 +42,11 @@
                 </div>
             </div>
         </div>
-    </ng-container> -->
+    </ng-container>
 
     <app-skeleton *ngIf="loader"></app-skeleton>
-    <!-- <div class="row" *ngIf="!loader">
-        <div class="col-md-2 listing__items" *ngFor="let item of topRatedTv | slice:0:18">
+    <div class="row" *ngIf="!loader">
+        <div class="col-md-2 listing__items" *ngFor="let item of topRatedTv">
             <div [routerLink]="['/tv/', item.id]">
                 <div class="listing-item-style">
                     <div class="overlay">
@@ -64,7 +64,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <mat-paginator [length]="totalResults" [pageSize]="20" (page)="changePage($event)"></mat-paginator>
 

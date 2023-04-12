@@ -22,7 +22,7 @@
     <ng-container *ngIf="searchRes">
         <app-skeleton *ngIf="loader"></app-skeleton>
         <div class="row" *ngIf="!loader">
-            <div class="col-md-2 listing__items" *ngFor="let movie of searchRes | slice:0:18">
+            <div class="col-md-2 listing__items" *ngFor="let movie of searchRes ">
                 <div [routerLink]="['/movies/', movie.id]">
                     <div class="listing-item-style">
                         <div class="overlay">
@@ -44,7 +44,7 @@
 
     <app-skeleton *ngIf="loader"></app-skeleton>
     <div class="row" *ngIf="!loader">
-        <div class="col-md-2 listing__items" *ngFor="let movie of topRated | slice:0:18">
+        <div class="col-md-2 listing__items" *ngFor="let movie of topRated ">
             <div [routerLink]="['/movies/', movie.id]">
                 <div class="listing-item-style">
                     <div class="overlay">

@@ -14,7 +14,7 @@ export class TvShowsComponent implements OnInit {
   loader = true;
   totalResults: any;
   total_results: any;
-  searchRes: any;
+  searchRes: any={};
   searchStr: any;
 
   constructor(

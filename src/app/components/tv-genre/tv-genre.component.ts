@@ -11,9 +11,9 @@ import { TvService } from 'src/app/service/tv.service';
 })
 export class TvGenreComponent implements OnInit {
 
-  _tv: Object;
-  title: string;
-  public id: number;
+  _tv: any;
+  title: any;
+  public id: any;
 
   constructor(
     private tvService: TvService,
@@ -22,14 +22,20 @@ export class TvGenreComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.router.params.subscribe((params: Params) => {
-      this.id = params['id'];
-      this.title = params['name'];
+    this.router.paramMap.subscribe(params => {
+      this.id= params.get('id');
+      this.title = params.get('name');
       this.getTvByGenre(this.id);
+     
     });
+    // this.router.params.subscribe((params: Params) => {
+    //   this.id = params['id'];
+    //   this.title = params['name'];
+    //   this.getTvByGenre(this.id);
+    // });
   }
 
-  getTvByGenre(id) {
+  getTvByGenre(id:any) {
     this.tvService.getTVShowByGenre(id).subscribe((res: any) => {
         this._tv = res.results;
     });

@@ -10,8 +10,8 @@ import { delay } from 'rxjs/internal/operators/delay';
 })
 export class GenreComponent implements OnInit {
   moviesGenre: any;
-  title: string;
-  public id: number;
+  title: any;
+  public id: any;
   loader = true;
 
   constructor(
@@ -27,7 +27,7 @@ export class GenreComponent implements OnInit {
     });
   }
 
-  getMoviesGenre(id) {
+  getMoviesGenre(id:any) {
     this.movieService.getMoviesByGenre(id).pipe(delay(2000)).subscribe((res: any) => {
         this.moviesGenre = res.results;
         this.loader = false;

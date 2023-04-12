@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/service/movies.service';
 import { ActivatedRoute , Params} from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+
 import { AppMovieDialogComponent } from '../movie-details/app-movie-dialog/app-movie-dialog.component';
 
 @Component({
@@ -11,8 +12,8 @@ import { AppMovieDialogComponent } from '../movie-details/app-movie-dialog/app-m
   styleUrls: ['./movie-details.component.scss'],
 })
 export class MovieDetailsComponent implements OnInit {
-  public id: number;
-  public video: boolean;
+  public id: any;
+  public video: any;
   movie: any;
   baseUrl = 'https://www.youtube.com/embed/';
   autoplay = '?rel=0;&autoplay=1&mute=0';
@@ -59,13 +60,13 @@ export class MovieDetailsComponent implements OnInit {
     });
   }
 
-  getSingleMoviesDetails(id){
+  getSingleMoviesDetails(id:any){
     this.movieService.getMovie(id).subscribe((res: any) => {
       this.movie = res;
     });
   }
 
-  getSingleMoviesVideos(id) {
+  getSingleMoviesVideos(id:any) {
     this.movieService.getMovieVideos(id).subscribe((res: any) => {
       if (res.results.length) {
         this.video = res.results[0];
@@ -74,7 +75,7 @@ export class MovieDetailsComponent implements OnInit {
     });
   }
 
-  openDialogMovie(video): void {
+  openDialogMovie(video:any): void {
     this.video['url'] = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + video.key + this.autoplay); 
     this.dialog.open(AppMovieDialogComponent, {
       height: '600px',
@@ -83,19 +84,19 @@ export class MovieDetailsComponent implements OnInit {
     });
   }
   
-  getCast(id) {
+  getCast(id:any) {
     this.movieService.getMovieCredits(id).subscribe((res: any) => {
       this.casts = res.cast;
     });
   }
 
-  getBackropsImages(id) {
+  getBackropsImages(id:any) {
     this.movieService.getBackdropsImages(id).subscribe((res: any) => {
       this.backdrops = res.backdrops;
     });
   }
 
-  getRecomendMovie(id) {
+  getRecomendMovie(id:any) {
     this.movieService.getRecomendMovies(id).subscribe((res: any) => {
       this.recomendMovies = res.results;
     });

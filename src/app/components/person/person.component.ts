@@ -8,7 +8,7 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./person.component.scss']
 })
 export class PersonComponent implements OnInit {
-  public id: number;
+  public id: any;
   person: any;
   // tslint:disable-next-line: variable-name
   person_cast: any = [];
@@ -19,20 +19,26 @@ export class PersonComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.router.params.subscribe((params: Params) => {
-      this.id = params['id'];
+    this.router.paramMap.subscribe(params => {
+      this.id= params.get('id');
       this.gerPersonDetails(this.id);
       this.getPersonCastMovie(this.id);
+     
     });
+    // this.router.params.subscribe((params: Params) => {
+    //   this.id = params['id'];
+    //   this.gerPersonDetails(this.id);
+    //   this.getPersonCastMovie(this.id);
+    // });
   }
 
-  gerPersonDetails(id) {
+  gerPersonDetails(id:any) {
     this.movieServices.getPersonDetail(id).subscribe((result: any) => {
       this.person = result;
     });
   }
 
-  getPersonCastMovie(id) {
+  getPersonCastMovie(id:any) {
     this.movieServices.getPersonCast(id).subscribe((res: any) => {
       this.person_cast = res.cast;
     });

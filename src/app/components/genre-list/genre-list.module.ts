@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {
-  MatButtonModule
-} from '@angular/material';
+
+import {MatButtonModule} from '@angular/material/button';
 
 import { GenreListRoutingModule } from './genre-list-routing.module';
 import { GenreListComponent } from './genre-list.component';

@@ -16,14 +16,14 @@ import { TvService } from 'src/app/service/tv.service';
 
 export class TvShowDetailsComponent implements OnInit {
 
-  public id!: number;
+  public id: any;
   public video!: any;
   episode: any;
   baseUrl = 'https://www.youtube.com/embed/';
   autoplay = '?rel=0;&autoplay=1&mute=0';
   related_video: any;
   casts: any;
-  backdrop: any;
+  backdrop:any= {};
   _posters: any;
   _recomend: any;
   responsiveOptions;
@@ -54,14 +54,22 @@ export class TvShowDetailsComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.router.params.subscribe((params: Params) => {
-      this.id = params['id'];
+    this.router.paramMap.subscribe(params => {
+      this.id= params.get('id');
       this.getTvDetails(this.id);
       this.getTvVideos(this.id);
       this.getTvCast(this.id);
       this.getTvBackropsImages(this.id);
       this.getRecomendTv(this.id);
     });
+    // this.router.params.subscribe((params: Params) => {
+    //   this.id = params['id'];
+    //   this.getTvDetails(this.id);
+    //   this.getTvVideos(this.id);
+    //   this.getTvCast(this.id);
+    //   this.getTvBackropsImages(this.id);
+    //   this.getRecomendTv(this.id);
+    // });
   }
 
   getTvDetails(id:any) {
@@ -96,7 +104,7 @@ export class TvShowDetailsComponent implements OnInit {
 
   getTvBackropsImages(id:any) {
     this.tvService.getTvBackdropsImages(id).subscribe((res: any) => {
-      this.backdrop = res.backdrops;
+      this.backdrop= res?.backdrops;
     });
   }
 
