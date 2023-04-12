@@ -7,7 +7,7 @@ export class CharacterWithCommasPipe implements PipeTransform {
 
   transform(array: any) {
     if (array) {
-      return array.map(item => item.name).join(', ');
+      return array.map((item:any) => item.name).join(', ');
     }
   }
 

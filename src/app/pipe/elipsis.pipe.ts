@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class ElipsisPipe implements PipeTransform {
 
-  transform(text, length, clamp) {
+  transform(text:any, length:any, clamp:any) {
     text = text || '';
     clamp = clamp || '...';
     length = length || 30;

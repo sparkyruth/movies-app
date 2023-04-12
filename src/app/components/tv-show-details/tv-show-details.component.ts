@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewEncapsulation, Inject } from '@angular/core';
 import { ActivatedRoute , Params} from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
+import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+
 import { AppTvDialogComponent } from './app-tv-dialog/app-tv-dialog.component';
 import { TvService } from 'src/app/service/tv.service';
 
@@ -14,8 +16,8 @@ import { TvService } from 'src/app/service/tv.service';
 
 export class TvShowDetailsComponent implements OnInit {
 
-  public id: number;
-  public video: boolean;
+  public id!: number;
+  public video!: any;
   episode: any;
   baseUrl = 'https://www.youtube.com/embed/';
   autoplay = '?rel=0;&autoplay=1&mute=0';
@@ -53,7 +55,7 @@ export class TvShowDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.router.params.subscribe((params: Params) => {
-      this.id = params.id;
+      this.id = params['id'];
       this.getTvDetails(this.id);
       this.getTvVideos(this.id);
       this.getTvCast(this.id);
@@ -62,13 +64,13 @@ export class TvShowDetailsComponent implements OnInit {
     });
   }
 
-  getTvDetails(id) {
+  getTvDetails(id:any) {
     this.tvService.getTVShow(id).subscribe((res: any) => {
       this.episode = res;
     });
   }
 
-  getTvVideos(id) {
+  getTvVideos(id:any) {
     this.tvService.getTvVideos(id).subscribe((res: any) => {
       if (res.results.length) {
         this.video = res.results[0];
@@ -77,7 +79,7 @@ export class TvShowDetailsComponent implements OnInit {
     });
   }
 
-  openDialogTv(video): void {
+  openDialogTv(video:any): void {
     this.video['url'] = this.sanitizer.bypassSecurityTrustResourceUrl(this.baseUrl + video.key + this.autoplay);
     this.dialog.open(AppTvDialogComponent, {
       height: '600px',
@@ -86,19 +88,19 @@ export class TvShowDetailsComponent implements OnInit {
     });
   }
 
-  getTvCast(id) {
+  getTvCast(id:any) {
     this.tvService.getMovieCredits(id).subscribe((res: any) => {
       this.casts = res.cast;
     });
   }
 
-  getTvBackropsImages(id) {
+  getTvBackropsImages(id:any) {
     this.tvService.getTvBackdropsImages(id).subscribe((res: any) => {
       this.backdrop = res.backdrops;
     });
   }
 
-  getRecomendTv(id) {
+  getRecomendTv(id:any) {
     this.tvService.getRecomendTv(id).subscribe((res: any) => {
       this._recomend = res.results;
     });

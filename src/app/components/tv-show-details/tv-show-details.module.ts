@@ -5,7 +5,8 @@ import { TvShowDetailsRoutingModule } from './tv-show-details-routing.module';
 import { TvShowDetailsComponent } from './tv-show-details.component';
 import { TabViewModule } from 'primeng/tabview';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatDialogModule, MatIconModule } from '@angular/material';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
 import { AppTvDialogComponent } from './app-tv-dialog/app-tv-dialog.component';
 import { CarouselModule } from 'primeng/carousel';
 import { PipeModule } from 'src/app/pipe/pipe.module';
@@ -29,5 +30,7 @@ import { PipeModule } from 'src/app/pipe/pipe.module';
     MatIconModule,
     CarouselModule
   ]
+  
+ 
 })
 export class TvShowDetailsModule { }
