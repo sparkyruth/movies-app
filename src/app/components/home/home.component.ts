@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MoviesService } from 'src/app/service/movies.service';
 import { TvService } from 'src/app/service/tv.service';
+import { FreeFilm, FreeFilmsService } from 'src/app/service/free-films.service';
 import { delay } from 'rxjs/internal/operators/delay';
 @Component({
   selector: 'app-home',
@@ -11,12 +12,14 @@ import { delay } from 'rxjs/internal/operators/delay';
 export class HomeComponent implements OnInit {
   nowPlaying: any;
   tvShows: any;
+  freeFilms: FreeFilm[] = [];
   responsiveOptions;
   loader = true;
 
   constructor(
     private movies: MoviesService,
-    private tv: TvService
+    private tv: TvService,
+    private free: FreeFilmsService
   ) {
     this.responsiveOptions = [
       {
@@ -39,6 +42,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.trendingMovies(1);
     this.tvShow(1);
+    this.freeToWatch();
+  }
+
+  freeToWatch() {
+    this.free.getAll().subscribe(films => {
+      this.freeFilms = films;
+    });
   }
 
   trendingMovies(page: number) {

@@ -48,6 +48,11 @@ const routes: Routes = [
   },
 
   {
+    path: 'free/:id',
+    loadChildren: () => import('./components/free-film/free-film.module').then(mod => mod.FreeFilmModule)
+  },
+
+  {
     path: '**',
     redirectTo: ''
   },

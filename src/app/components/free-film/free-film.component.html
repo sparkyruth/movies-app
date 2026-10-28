@@ -1,0 +1,24 @@
+<div class="free-film" *ngIf="film as f">
+    <div class="free-film__player">
+        <video [src]="f.video" [poster]="f.poster" controls preload="metadata" playsinline></video>
+    </div>
+
+    <div class="free-film__meta">
+        <h1 class="free-film__title">{{ f.title }}</h1>
+        <div class="free-film__info">
+            <span *ngIf="f.year">{{ f.year }}</span>
+            <span *ngIf="f.runtime">{{ f.runtime }} min</span>
+            <span class="free-film__badge">Public domain</span>
+        </div>
+        <p class="free-film__overview" *ngIf="f.overview">{{ f.overview }}</p>
+        <p class="free-film__source">
+            Hosted by the
+            <a [href]="f.source" target="_blank" rel="noopener noreferrer">Internet Archive</a>.
+        </p>
+    </div>
+</div>
+
+<div class="free-film free-film--missing" *ngIf="notFound">
+    <h1 class="free-film__title">Film not found</h1>
+    <p><a routerLink="/">Back to home</a></p>
+</div>
