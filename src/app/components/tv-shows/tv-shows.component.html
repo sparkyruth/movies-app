@@ -30,7 +30,7 @@
                             <div class="hover"><i class="material-icons">play_arrow</i> PLAY NOW</div>
                         </div>
                         <img *ngIf="item?.poster_path"
-                            src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{item?.poster_path}}"
+                            src="https://image.tmdb.org/t/p/w500/{{item?.poster_path}}"
                             [alt]="item?.title ? item.title : item.name">
                         <img *ngIf="!item?.poster_path" src="assets/images/default-movie.png"
                             [alt]="item?.title ? item.title : item.name">
@@ -53,7 +53,7 @@
                         <div class="hover"><i class="material-icons">play_arrow</i> PLAY NOW</div>
                     </div>
                     <img *ngIf="item?.poster_path"
-                        src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{item?.poster_path}}"
+                        src="https://image.tmdb.org/t/p/w500/{{item?.poster_path}}"
                         [alt]="item.title ? item.title : item.name">
                     <img *ngIf="!item?.poster_path" src="assets/images/default-movie.png"
                         [alt]="item.title ? item.title : item.name">

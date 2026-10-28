@@ -8,6 +8,18 @@
     line-height: 1;
   }
 
+  .footer__attribution {
+    font-size: 10px;
+    opacity: 0.45;
+    margin-top: 8px;
+    margin-bottom: 0;
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+
   .list-inline {
     li {
       a {

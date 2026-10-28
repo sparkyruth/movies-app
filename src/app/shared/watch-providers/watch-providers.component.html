@@ -1,0 +1,31 @@
+<div class="providers" *ngIf="loaded">
+    <div class="providers__head">
+        <h2 class="title">Where to Watch</h2>
+        <select class="providers__region" *ngIf="regions.length" [value]="region"
+            (change)="onRegionChange($event)" aria-label="Country">
+            <option *ngFor="let r of regions" [value]="r.code">{{ r.name }}</option>
+        </select>
+    </div>
+
+    <div class="providers__group" *ngFor="let group of groups">
+        <div class="providers__label">{{ group.label }}</div>
+        <ul class="providers__list">
+            <li *ngFor="let provider of group.providers">
+                <a [href]="link" target="_blank" rel="noopener noreferrer" [attr.title]="provider.provider_name">
+                    <img [src]="'https://image.tmdb.org/t/p/w92' + provider.logo_path"
+                        [attr.alt]="provider.provider_name" loading="lazy">
+                    <span class="providers__name">{{ provider.provider_name }}</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <p class="providers__empty" *ngIf="!regions.length">
+        No streaming, rental or purchase options are listed for this title yet.
+    </p>
+
+    <p class="providers__note" *ngIf="groups.length">
+        Availability in {{ regionLabel }}. Data by
+        <a href="https://www.justwatch.com" target="_blank" rel="noopener noreferrer">JustWatch</a>.
+    </p>
+</div>

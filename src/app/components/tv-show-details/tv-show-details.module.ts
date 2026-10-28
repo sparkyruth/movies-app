@@ -10,6 +10,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { AppTvDialogComponent } from './app-tv-dialog/app-tv-dialog.component';
 import { CarouselModule } from 'primeng/carousel';
 import { PipeModule } from 'src/app/pipe/pipe.module';
+import { WatchProvidersModule } from 'src/app/shared/watch-providers/watch-providers.module';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { PipeModule } from 'src/app/pipe/pipe.module';
     MatTabsModule,
     MatDialogModule,
     MatIconModule,
-    CarouselModule
+    CarouselModule,
+    WatchProvidersModule
   ]
   
  

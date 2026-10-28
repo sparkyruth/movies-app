@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = "dist/movies"
+
+[build.environment]
+  NODE_VERSION = "16"
+
+# Angular routes are client-side, so every unknown path must still serve index.html.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

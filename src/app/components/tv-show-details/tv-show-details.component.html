@@ -41,7 +41,7 @@
                     <div class="listing-space info">
                         <div class="left">
                             <div class="poster">
-                                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{ episode?.poster_path }}">
+                                <img src="https://image.tmdb.org/t/p/w500/{{ episode?.poster_path }}">
                             </div>
                         </div>
                         <div class="right">
@@ -127,6 +127,7 @@
                                     </li>
                                 </ul>
                             </div>
+                            <app-watch-providers [results]="watchProviders"></app-watch-providers>
                         </div>
                     </div>
                 </mat-tab>
@@ -169,7 +170,7 @@
                             <div class="item backdrop_" *ngFor="let item of backdrop ">
                                 <div class="image">
                                     <img class="lazyload"
-                                        src="https://image.tmdb.org/t/p/w533_and_h300_bestv2/{{ item?.file_path }}">
+                                        src="https://image.tmdb.org/t/p/w780/{{ item?.file_path }}">
                                 </div>
                             </div>
                         </div>
@@ -187,7 +188,7 @@
                                 <div class="hover"><i class="material-icons">play_arrow</i> PLAY NOW</div>
                             </div>
                             <img *ngIf="recomend?.poster_path"
-                                src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{recomend?.poster_path}}">
+                                src="https://image.tmdb.org/t/p/w500/{{recomend?.poster_path}}">
                             <img *ngIf="!recomend?.poster_path" src="assets/images/default-movie.png">
                             <h6>{{ recomend?.name }}</h6>
                             <p class="rate"><i class="material-icons">star</i><span>{{recomend?.vote_average}}</span>

@@ -21,6 +21,7 @@ export class MovieDetailsComponent implements OnInit {
   casts: any = [];
   backdrops: any = [];
   recomendMovies: any = [];
+  watchProviders: any = null;
   responsiveOptions;
 
 
@@ -57,6 +58,7 @@ export class MovieDetailsComponent implements OnInit {
       this.getCast(this.id);
       this.getBackropsImages(this.id);
       this.getRecomendMovie(this.id);
+      this.getWatchProviders(this.id);
     });
   }
 
@@ -93,6 +95,12 @@ export class MovieDetailsComponent implements OnInit {
   getBackropsImages(id:any) {
     this.movieService.getBackdropsImages(id).subscribe((res: any) => {
       this.backdrops = res.backdrops;
+    });
+  }
+
+  getWatchProviders(id:any) {
+    this.movieService.getMovieWatchProviders(id).subscribe((res: any) => {
+      this.watchProviders = res.results || {};
     });
   }
 

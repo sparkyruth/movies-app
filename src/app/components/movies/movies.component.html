@@ -28,7 +28,7 @@
                         <div class="overlay">
                             <div class="hover"><i class="material-icons">play_arrow</i> PLAY NOW</div>
                         </div>
-                        <img *ngIf="movie?.poster_path" src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{movie?.poster_path}}"
+                        <img *ngIf="movie?.poster_path" src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}"
                             [alt]="movie.title ? movie.title : movie.name">
                         <img *ngIf="!movie?.poster_path" src="assets/images/default-movie.png"
                             [alt]="movie.title ? movie.title : movie.name">
@@ -50,7 +50,7 @@
                     <div class="overlay">
                         <div class="hover"><i class="material-icons">play_arrow</i> PLAY NOW</div>
                     </div>
-                    <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{movie?.poster_path}}"
+                    <img src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}"
                         [alt]="movie.title ? movie.title : movie.name">
                     <img *ngIf="!movie?.poster_path" src="assets/images/default-movie.png"
                         [alt]="movie.title ? movie.title : movie.name">

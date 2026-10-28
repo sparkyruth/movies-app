@@ -26,6 +26,7 @@ export class TvShowDetailsComponent implements OnInit {
   backdrop:any= {};
   _posters: any;
   _recomend: any;
+  watchProviders: any = null;
   responsiveOptions;
 
   constructor(
@@ -61,6 +62,7 @@ export class TvShowDetailsComponent implements OnInit {
       this.getTvCast(this.id);
       this.getTvBackropsImages(this.id);
       this.getRecomendTv(this.id);
+      this.getWatchProviders(this.id);
     });
     // this.router.params.subscribe((params: Params) => {
     //   this.id = params['id'];
@@ -105,6 +107,12 @@ export class TvShowDetailsComponent implements OnInit {
   getTvBackropsImages(id:any) {
     this.tvService.getTvBackdropsImages(id).subscribe((res: any) => {
       this.backdrop= res?.backdrops;
+    });
+  }
+
+  getWatchProviders(id:any) {
+    this.tvService.getTvWatchProviders(id).subscribe((res: any) => {
+      this.watchProviders = res.results || {};
     });
   }
 

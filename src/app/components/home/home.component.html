@@ -19,7 +19,7 @@
                     <div class="hover"><i class="material-icons">play_arrow</i> PLAY NOW</div>
                 </div>
                 <img *ngIf="movie?.poster_path"
-                    src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{movie?.poster_path}}">
+                    src="https://image.tmdb.org/t/p/w500/{{movie?.poster_path}}">
                 <img *ngIf="!movie?.poster_path" src="assets/images/default-movie.png">
                 <h6>{{ movie?.title }}</h6>
                 <p class="rate"><i class="material-icons">star</i><span>{{movie?.vote_average}}</span> /10</p>
@@ -45,7 +45,7 @@
                 <div class="overlay">
                     <div class="hover"><i class="material-icons">play_arrow</i> PLAY NOW</div>
                 </div>
-                <img src="https://image.tmdb.org/t/p/w370_and_h556_bestv2/{{tv?.poster_path}}">
+                <img src="https://image.tmdb.org/t/p/w500/{{tv?.poster_path}}">
                 <h6>{{ tv?.original_name }}</h6>
                 <p class="rate"><i class="material-icons">star</i><span>{{tv?.vote_average}}</span>/10</p>
                 <p class="year"><span>{{tv?.first_air_date | date: 'yyyy'}}</span>
